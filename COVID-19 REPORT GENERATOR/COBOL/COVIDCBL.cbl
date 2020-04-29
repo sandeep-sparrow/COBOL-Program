@@ -66,11 +66,17 @@
            05  WS-VALUE2                  PIC X(11).
            05  WS-VALUE3                  PIC X(46).
            05  WS-VALUE4                  PIC 9(12).
+           05  WS-TTL-VAL4                PIC 9(12).
            05  WS-VALUE5                  PIC 9(14).
+           05  WS-TTL-VAL5                PIC 9(14).
            05  WS-VALUE6                  PIC 9(09).
+           05  WS-TTL-VAL6                PIC 9(09).
            05  WS-VALUE7                  PIC 9(11).
+           05  WS-TTL-VAL7                PIC 9(11).
            05  WS-VALUE8                  PIC 9(12).
+           05  WS-TTL-VAL8                PIC 9(12).
            05  WS-VALUE9                  PIC 9(15).
+           05  WS-TTL-VAL9                PIC 9(15).
            05  WS-VALUE10                 PIC X(22).
       *
       * COPYBOOK HEADER & BODY
@@ -117,6 +123,19 @@
                   CONTINUE
               WHEN '10'
                   MOVE 'Y' TO WS-STR-FILE-EOF
+                  INITIALIZE BODY
+                  MOVE 'TTL VALUE'     TO VAL0
+                  INSPECT VAL1 REPLACING ALL SPACES BY '-'
+                  INSPECT VAL2 REPLACING ALL SPACES BY '-'
+                  INSPECT VAL3 REPLACING ALL SPACES BY '-'
+                  MOVE WS-TTL-VAL4 TO VAL4
+                  MOVE WS-TTL-VAL5 TO VAL5
+                  MOVE WS-TTL-VAL6 TO VAL6
+                  MOVE WS-TTL-VAL7 TO VAL7
+                  MOVE WS-TTL-VAL8 TO VAL8
+                  MOVE WS-TTL-VAL9 TO VAL9
+                  WRITE OUT-REC FROM BODY
+                  ADD 1 TO WS-WRITE-RECORD
               WHEN OTHER
                   MOVE 'INPUT FILE I/O ERROR ON READ.  RC: '
                               TO ERR-MSG-DATA1
@@ -186,11 +205,17 @@
                  INSPECT WS-STRING1 REPLACING ALL '"' BY SPACE
                  MOVE WS-STRING1         TO VAL3
                  MOVE WS-VALUE4          TO VAL4
+                 COMPUTE WS-TTL-VAL4 = WS-TTL-VAL4 + WS-VALUE4
                  MOVE WS-VALUE5          TO VAL5
+                 COMPUTE WS-TTL-VAL5 = WS-TTL-VAL5 + WS-VALUE5
                  MOVE WS-VALUE6          TO VAL6
+                 COMPUTE WS-TTL-VAL6 = WS-TTL-VAL6 + WS-VALUE6
                  MOVE WS-VALUE7          TO VAL7
+                 COMPUTE WS-TTL-VAL7 = WS-TTL-VAL7 + WS-VALUE7
                  MOVE WS-VALUE8          TO VAL8
+                 COMPUTE WS-TTL-VAL8 = WS-TTL-VAL8 + WS-VALUE8
                  MOVE WS-VALUE9          TO VAL9
+                 COMPUTE WS-TTL-VAL9 = WS-TTL-VAL9 + WS-VALUE9
                  WRITE OUT-REC FROM BODY
                  ADD 1 TO WS-WRITE-RECORD
                END-IF.
