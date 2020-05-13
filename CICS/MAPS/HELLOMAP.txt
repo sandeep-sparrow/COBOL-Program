@@ -1,0 +1,10 @@
+HELLOMAP DFHMSD TYPE=&SYSPARM,MODE=INOUT,TERM=3270,CTRL=FREEKB,        X00010000
+                STORAGE=AUTO,LANG=COBOL,TIOAPFX=YES                     00020000
+                                                                        00021000
+HELLO    DFHMDI SIZE=(24,80),LINE=1,COLUMN=1                            00022000
+         DFHMDF POS=(1,1),INITIAL='HELLO WORLD!',LENGTH=12,            X00023000
+                ATTRB=PROT                                              00024000
+         DFHMDF POS=(2,1),INITIAL='MY NAME IS SANDEEP!',LENGTH=19,     X00025001
+                ATTRB=PROT                                              00026001
+         DFHMSD TYPE=FINAL                                              00030000
+                END                                                     00040000

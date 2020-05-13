@@ -1,0 +1,5 @@
+/* REXX */                                                              00010000
+ADDRESS ISREDIT                                                         00020000
+"MACRO"                                                                 00030000
+"ISREDIT (DNAME) = DATASET"                                             00040000
+SAY DNAME                                                               00050000

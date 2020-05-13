@@ -11,15 +11,15 @@
 // IF RC = 0 THEN
 //*--------------------------------------------------------------------*
 //RUN      EXEC PGM=COVIDCBL
-//STEPLIB  DD DSN=Z80076.LOAD,DISP=SHR
+//STEPLIB  DD DSN=&SYSUID.LOAD,DISP=SHR
 //*--------------------------------------------------------------------*
 //*   << INPUT FILE  >>                                                *
 //*--------------------------------------------------------------------*
-//INFILE   DD DSN=Z80076.COVID.COUNTRY,DISP=SHR
+//INFILE   DD DSN=&SYSUID.COVID.COUNTRY,DISP=SHR
 //*--------------------------------------------------------------------*
 //*   << OUTPUT FILE >>                                                *
 //*--------------------------------------------------------------------*
-//OUTFILE  DD DSN=Z80076.COVID.OUTPUT,DISP=OLD
+//OUTFILE  DD DSN=&SYSUID.COVID.OUTPUT,DISP=OLD
 //*--------------------------------------------------------------------*
 //*   << SPOOL OUTPUT >>                                               *
 //*--------------------------------------------------------------------*
@@ -29,8 +29,8 @@
 // ENDIF
 //*--------------------------------------------------------------------*
 //STEP01   EXEC PGM=SORT
-//SORTIN   DD DSN=Z80076.COVID.OUTPUT,DISP=SHR
-//SORTOUT  DD DSN=Z80076.COVID.OUTPUT.SORTED,DISP=SHR
+//SORTIN   DD DSN=&SYSUID.COVID.OUTPUT,DISP=SHR
+//SORTOUT  DD DSN=&SYSUID.COVID.OUTPUT.SORTED,DISP=SHR
 //SYSOUT   DD SYSOUT=*
 //SYSIN DD *
    SORT FIELDS=(156,11,ZD,D)

@@ -1,0 +1,35 @@
+/* REXX */                                                              00010000
+ADDRESS ISREDIT                                                         00020000
+"MACRO (VIEW)"                                                          00030000
+"(CURL,CURC)=CURSOR"                                                    00040000
+"(LINEDATA)=LINE" CURL                                                  00050000
+PARSE VAR LINEDATA BEQUAL '=' DSNAME ','                                00060000
+ IF SYSDSN("'"DSNAME"'") = 'OK' THEN                                    00070000
+  DO                                                                    00080000
+    SELECT                                                              00090000
+      WHEN VIEW = 'E' THEN                                              00100000
+        DO                                                              00110000
+          ADDRESS ISPEXEC "EDIT DATASET('"DSNAME"')"                    00120000
+        END                                                             00130000
+      WHEN VIEW = 'V' THEN                                              00140000
+        DO                                                              00150000
+          ADDRESS ISPEXEC "VIEW DATASET('"DSNAME"')"                    00160000
+        END                                                             00170000
+      WHEN VIEW = 'B' THEN                                              00180000
+        DO                                                              00190000
+          ADDRESS ISPEXEC "BROWSE DATASET('"DSNAME"')"                  00200000
+        END                                                             00210000
+      WHEN VIEW = 'D' THEN                                              00220000
+        DO                                                              00230000
+          ADDRESS TSO "DELETE '"DSNAME"'"                               00240000
+        END                                                             00250000
+      OTHERWISE                                                         00260000
+        DO                                                              00270000
+          SAY 'PLEASE SELECT APPROPRIATE OPTION'                        00280000
+        END                                                             00290000
+    END                                                                 00300000
+  END                                                                   00310000
+ ELSE                                                                   00320000
+  DO                                                                    00330000
+    SAY 'DATSET IS NOT FOUND'                                           00340000
+  END                                                                   00350000

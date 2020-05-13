@@ -1,0 +1,7 @@
+/* REXX */                                                              00020000
+/* DELETING COMMENTS LINES FORM COBOL PROGRAM */                        00030000
+ADDRESS ISREDIT                                                         00040000
+"MACRO"                                                                 00050000
+"RES"                                                                   00060000
+ "EXCLUDE ALL '*' 7"                                                    00070000
+ "SAVE"                                                                 00080000

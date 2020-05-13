@@ -1,14 +1,14 @@
-//STKJCL   JOB NOTIFY=&SYSUID,CLASS=A,MSGCLASS=A,PRTY=15
+//CALJCL1  JOB NOTIFY=&SYSUID,CLASS=A,MSGCLASS=A,PRTY=15
 //*--------------------------------------------------------------------*
 //*   << PRE-DEFINED COBOL COMPILE PRODECRE - IGYWCL/IGYWCLG >>        *
 //*--------------------------------------------------------------------*
-//COMPILE  EXEC IGYWCL,SRC=STKCBL
+//COMPILE  EXEC IGYWCL,SRC=CALC1002
 //SYSIN    DD DSNAME=&SYSUID..CBL.SAMPLE(&SRC),DISP=SHR
 //SYSLIB   DD DSN=&SYSUID..SAMPLE.COBCOPY,DISP=SHR 
 //*--------------------------------------------------------------------*
 //*   << STEP LIBRARY - LOAD MODULE >>                                 *
 //*--------------------------------------------------------------------*
-//RUN      EXEC PGM=STKCBL
+//RUN      EXEC PGM=CALC1002
 //STEPLIB  DD DSN=&SYSUID.LOAD,DISP=SHR
 //*--------------------------------------------------------------------*
 //*   << INPUT FILE  >>                                                *
