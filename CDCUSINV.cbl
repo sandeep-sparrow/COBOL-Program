@@ -199,4 +199,3 @@
              DISPLAY ' *** INVOICE RETRIVAL ERROR *** '
              DISPLAY ' '.
       *
-
